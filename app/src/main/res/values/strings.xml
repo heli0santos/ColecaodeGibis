@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Colecao de Gibis</string>
+    <string name="revista">Nome da Revista</string>
+    <string name="titulo">Título</string>
+    <string name="numero">Número</string>
+    <string name="editora">Editora</string>
+</resources>
