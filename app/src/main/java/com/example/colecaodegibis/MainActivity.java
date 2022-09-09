@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void visualizar(View view){
-        Toast.makeText(this, "Revista aberta", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Revista abertaaaa", Toast.LENGTH_SHORT).show();
     }
 
     public void adicionar(View view){
