@@ -8,25 +8,37 @@ import java.util.List;
 
 public class GibiControllerVetor implements IGibiController {
 
+    private static GibiControllerVetor instance;
+
     private List<Gibi> gibis = new ArrayList<Gibi>();
+
+    private GibiControllerVetor(){
+
+    }
+
+    public GibiControllerVetor getInstance(){
+        if (instance == null)
+            instance = new GibiControllerVetor();
+        return instance;
+    }
 
     @Override
     public void create(Gibi gibi) {
-
+        gibis.add(gibi);
     }
 
     @Override
     public List<Gibi> read() {
-        return null;
+        return gibis;
     }
 
     @Override
     public Gibi update(long i, Gibi gibi) {
-        return null;
+        return gibis.set((int) i, gibi);
     }
 
     @Override
     public void delete(long i) {
-
+        gibis.remove((int) i);
     }
 }
