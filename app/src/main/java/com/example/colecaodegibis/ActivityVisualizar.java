@@ -12,7 +12,7 @@ public class ActivityVisualizar extends AppCompatActivity {
     TextView tvTituloRevista;
     TextView tvNumeroRevista;
     TextView tvEditoraRevista;
-
+    int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class ActivityVisualizar extends AppCompatActivity {
         tvEditoraRevista = findViewById(R.id.textViewEditoraRevista);
 
         Intent intent = getIntent();
+        contador++;
 
         tvNomeRevista.setText(intent.getStringExtra("nome"));
         tvTituloRevista.setText(intent.getStringExtra("titulo"));
