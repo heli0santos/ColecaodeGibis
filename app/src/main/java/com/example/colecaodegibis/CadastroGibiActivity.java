@@ -8,12 +8,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.colecaodegibis.controllers.GibiControllerVetor;
+import com.example.colecaodegibis.entities.Gibi;
+import com.example.colecaodegibis.interfaces.IGibiController;
+
+public class CadastroGibiActivity extends AppCompatActivity {
 
     EditText etNomeRevista;
     EditText etTituloRevista;
     EditText etNumeroRevista;
     EditText etEditoraRevista;
+    IGibiController gibiController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         etTituloRevista = findViewById(R.id.editTextTitulo);
         etNumeroRevista = findViewById(R.id.editTextNumero);
         etEditoraRevista = findViewById(R.id.editTextEditora);
+
+        gibiController = GibiControllerVetor.getInstance();
     }
 
     public void visualizar(View view){
@@ -34,5 +41,18 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("editora", etEditoraRevista.getText().toString());
         Toast.makeText(this, "Revista enviada.", Toast.LENGTH_SHORT).show();
         startActivity(intent);
+    }
+
+    public void salvarGibi(View view){
+        gibiController.create(obterGibiTela());
+    }
+
+    private Gibi obterGibiTela(){
+        Gibi gibi = new Gibi();
+        gibi.setTitulo(etTituloRevista.getText().toString());
+        gibi.setNome(etNomeRevista.getText().toString());
+        gibi.setNumero(etNumeroRevista.getText().toString());
+        gibi.setEditora(etEditoraRevista.getText().toString());
+        return gibi;
     }
 }

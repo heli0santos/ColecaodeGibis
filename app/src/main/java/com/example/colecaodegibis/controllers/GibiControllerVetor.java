@@ -16,7 +16,7 @@ public class GibiControllerVetor implements IGibiController {
 
     }
 
-    public GibiControllerVetor getInstance(){
+    public static GibiControllerVetor getInstance(){
         if (instance == null)
             instance = new GibiControllerVetor();
         return instance;
