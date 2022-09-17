@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GibiControllerVetor implements IGibiController {
 
-    private static GibiControllerVetor instance;
+    private static final GibiControllerVetor instance = new GibiControllerVetor();
 
     private List<Gibi> gibis = new ArrayList<Gibi>();
 
@@ -17,8 +17,6 @@ public class GibiControllerVetor implements IGibiController {
     }
 
     public static GibiControllerVetor getInstance(){
-        if (instance == null)
-            instance = new GibiControllerVetor();
         return instance;
     }
 
