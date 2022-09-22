@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -27,6 +29,15 @@ public class ActivityVisualizar extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 gibiController.read());
         listViewGibis.setAdapter(arrayAdapterGibis);
+
+        listViewGibis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), CadastroGibiActivity.class);
+                intent.putExtra("i", i);
+                startActivity(intent);
+            }
+        });
     }
 
     public void adicionarGibi(View view){

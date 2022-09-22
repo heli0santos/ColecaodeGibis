@@ -49,6 +49,6 @@ public class Gibi {
 
     @Override
     public String toString(){
-        return nome + " - " + titulo + " - " + numero;
+        return nome + " - " + titulo + " - " + numero + " - " + editora;
     }
 }

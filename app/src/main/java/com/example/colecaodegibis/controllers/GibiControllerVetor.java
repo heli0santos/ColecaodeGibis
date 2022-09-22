@@ -39,4 +39,9 @@ public class GibiControllerVetor implements IGibiController {
     public void delete(long i) {
         gibis.remove((int) i);
     }
+
+    @Override
+    public Gibi read(long i) {
+        return gibis.get((int) i);
+    }
 }
