@@ -23,6 +23,7 @@ public class CadastroGibiActivity extends AppCompatActivity {
     IGibiController gibiController;
     ImageButton buttonSave;
     ImageButton buttonDelete;
+    long i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class CadastroGibiActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent.hasExtra("i")){
-            int i = intent.getIntExtra("i", -1);
+            i = intent.getLongExtra("i", -1);
             Gibi gibi = gibiController.read(i);
             etNomeRevista.setText(gibi.getNome());
             etTituloRevista.setText(gibi.getTitulo());
@@ -66,14 +67,9 @@ public class CadastroGibiActivity extends AppCompatActivity {
 
     }
 
-    public void visualizar(View view){
-        Intent intent = new Intent(this, ActivityVisualizar.class);
-        intent.putExtra("nome", etNomeRevista.getText().toString());
-        intent.putExtra("titulo", etTituloRevista.getText().toString());
-        intent.putExtra("numero", etNumeroRevista.getText().toString());
-        intent.putExtra("editora", etEditoraRevista.getText().toString());
-        Toast.makeText(this, "Revista enviada.", Toast.LENGTH_SHORT).show();
-        startActivity(intent);
+    public void excluirGibi(View view){
+        gibiController.delete(i);
+        limparGibiTela(view);
     }
 
     private Gibi obterGibiTela(){
@@ -84,4 +80,12 @@ public class CadastroGibiActivity extends AppCompatActivity {
         gibi.setEditora(etEditoraRevista.getText().toString());
         return gibi;
     }
+
+    public void limparGibiTela(View view){
+        etNomeRevista.setText("");
+        etTituloRevista.setText("");
+        etNumeroRevista.setText("");
+        etEditoraRevista.setText("");
+    }
+
 }

@@ -34,7 +34,7 @@ public class ActivityVisualizar extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), CadastroGibiActivity.class);
-                intent.putExtra("i", i);
+                intent.putExtra("i",(long) i);
                 startActivity(intent);
             }
         });
