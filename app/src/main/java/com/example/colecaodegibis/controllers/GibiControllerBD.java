@@ -23,7 +23,7 @@ public class GibiControllerBD implements IGibiController {
 
     @Override
     public List<Gibi> read() {
-        return null;
+        return gibiDAO.read();
     }
 
     @Override

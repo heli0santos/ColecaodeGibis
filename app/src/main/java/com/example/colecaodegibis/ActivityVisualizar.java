@@ -9,7 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.colecaodegibis.controllers.GibiControllerBD;
 import com.example.colecaodegibis.controllers.GibiControllerVetor;
+import com.example.colecaodegibis.database.GibiDAO;
 import com.example.colecaodegibis.entities.Gibi;
 import com.example.colecaodegibis.interfaces.IGibiController;
 
@@ -22,7 +24,8 @@ public class ActivityVisualizar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizar);
 
-        IGibiController gibiController = GibiControllerVetor.getInstance();
+        //IGibiController gibiController = GibiControllerVetor.getInstance();
+        IGibiController gibiController = new GibiControllerBD(this);
 
         listViewGibis = findViewById(R.id.listViewGibis);
         ArrayAdapter<Gibi> arrayAdapterGibis = new ArrayAdapter<Gibi>(this,
