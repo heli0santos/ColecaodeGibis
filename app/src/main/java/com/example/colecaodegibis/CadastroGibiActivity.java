@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.colecaodegibis.controllers.GibiControllerBD;
 import com.example.colecaodegibis.controllers.GibiControllerVetor;
 import com.example.colecaodegibis.entities.Gibi;
 import com.example.colecaodegibis.interfaces.IGibiController;
@@ -37,7 +38,8 @@ public class CadastroGibiActivity extends AppCompatActivity {
         buttonSave = findViewById(R.id.imageButtonSave);
         buttonDelete = findViewById(R.id.imageButtonDelete);
 
-        gibiController = GibiControllerVetor.getInstance();
+        //gibiController = GibiControllerVetor.getInstance();
+        gibiController = new GibiControllerBD(this);
 
         Intent intent = getIntent();
         if(intent.hasExtra("i")){
