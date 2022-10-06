@@ -61,4 +61,28 @@ public class GibiDAO {
         return gibis;
     }
 
+    @SuppressLint("Range")
+    public Gibi read(long _id){
+        Gibi gibi = new Gibi();
+        String[] colunas = {"_id", "nome", "titulo", "numero", "editora"};
+        String selection = "_id = ?";
+        String[] selectionArgs = {Long.toString(_id)};
+        Cursor cursorGibi = db.query("Gibi", colunas,
+                selection, selectionArgs, null, null, null);
+        if(cursorGibi.moveToFirst()){
+                gibi.set_id(cursorGibi.getLong(cursorGibi.getColumnIndex("_id")));
+                gibi.setNome(cursorGibi.getString(cursorGibi.getColumnIndex("nome")));
+                gibi.setTitulo(cursorGibi.getString(cursorGibi.getColumnIndex("titulo")));
+                gibi.setNumero(cursorGibi.getString(cursorGibi.getColumnIndex("numero")));
+                gibi.setEditora(cursorGibi.getString(cursorGibi.getColumnIndex("editora")));
+        }
+        return gibi;
+    }
+
+    public Cursor getCursor(){
+        String[] colunas = {"_id", "nome", "titulo", "numero", "editora"};
+        return db.query("Gibi", colunas,
+                null, null, null, null, null);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.colecaodegibis.controllers;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.example.colecaodegibis.database.GibiDAO;
 import com.example.colecaodegibis.entities.Gibi;
@@ -28,7 +29,7 @@ public class GibiControllerBD implements IGibiController {
 
     @Override
     public Gibi read(long i) {
-        return null;
+        return gibiDAO.read(i);
     }
 
     @Override
@@ -39,5 +40,10 @@ public class GibiControllerBD implements IGibiController {
     @Override
     public void delete(long i) {
 
+    }
+
+    @Override
+    public Cursor getCursor() {
+        return gibiDAO.getCursor();
     }
 }

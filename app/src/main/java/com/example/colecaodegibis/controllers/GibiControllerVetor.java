@@ -1,5 +1,7 @@
 package com.example.colecaodegibis.controllers;
 
+import android.database.Cursor;
+
 import com.example.colecaodegibis.entities.Gibi;
 import com.example.colecaodegibis.interfaces.IGibiController;
 
@@ -43,5 +45,10 @@ public class GibiControllerVetor implements IGibiController {
     @Override
     public Gibi read(long i) {
         return gibis.get((int) i);
+    }
+
+    @Override
+    public Cursor getCursor() {
+        return null;
     }
 }

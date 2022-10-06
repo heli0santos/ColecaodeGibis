@@ -1,5 +1,7 @@
 package com.example.colecaodegibis.interfaces;
 
+import android.database.Cursor;
+
 import com.example.colecaodegibis.entities.Gibi;
 
 import java.util.List;
@@ -10,4 +12,5 @@ public interface IGibiController {
     Gibi read(long i);
     Gibi update(long i, Gibi gibi);
     void delete(long i);
+    Cursor getCursor();
 }
