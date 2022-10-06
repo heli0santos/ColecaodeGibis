@@ -43,7 +43,7 @@ public class ActivityVisualizar extends AppCompatActivity {
         SimpleCursorAdapter cursorAdapterGibis = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_2,
                 gibiController.getCursor(),
-                new String[] {"titulo", "numero"},
+                new String[] {"nome", "titulo", "numero", "editora"},
                 new int [] {android.R.id.text1, android.R.id.text2},
                 SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
