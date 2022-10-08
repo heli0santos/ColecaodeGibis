@@ -34,12 +34,12 @@ public class GibiControllerBD implements IGibiController {
 
     @Override
     public Gibi update(long i, Gibi gibi) {
-        return null;
+        return gibiDAO.update(i, gibi);
     }
 
     @Override
     public void delete(long i) {
-
+        gibiDAO.delete(i);
     }
 
     @Override

@@ -85,4 +85,25 @@ public class GibiDAO {
                 null, null, null, null, null);
     }
 
+    public Gibi update(long _id, Gibi gibi){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nome", gibi.getNome());
+        contentValues.put("titulo", gibi.getTitulo());
+        contentValues.put("numero", gibi.getNumero());
+        contentValues.put("editora", gibi.getEditora());
+
+        String whereClause = "_id = ?";
+        String[] whereArgs = {Long.toString(_id)};
+
+        db.update("Gibi", contentValues, whereClause, whereArgs);
+        return gibi;
+    }
+
+    public void delete (long _id){
+        String whereClause = "_id = ?";
+        String[] whereArgs = {Long.toString(_id)};
+
+        db.delete("Gibi", whereClause, whereArgs);
+    }
+
 }
